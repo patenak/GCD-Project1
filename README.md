@@ -1,4 +1,6 @@
 ===========================================================
+README.md
+=========================================================== 
 Getting and cleaning Data
 Johns Hopkins Bloomberg School of Health / Cousera
 Class getdata-005; July 2014
@@ -11,6 +13,9 @@ https://github.com/patenak/GCD-Project1
 
 Data set used for project can be located at UCI's Machine Learning Repository:
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+Direct link to dataset (zip archive):
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
 Original Source:
 Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto. 
@@ -31,3 +36,41 @@ Requirements for submission include:
 to clean up the data called CodeBook.md. 
 
 ===========================================================
+
+Files Needed from UCI HAR Dataset archive (UCI HAR Dataset.zip) to perform analysis:
+
+path: /UCI HAR Dataset/
+README.txt:		readme file for original experiment
+activity_labels:	lisitng of numeric codes for each activity type
+features_info: 		Information on feature selection and variables of the feature vectors
+features.txt:		listing of variables for which data was collected
+
+path: /UCI HAR Dataset/test/
+X_test.txt:		test dataset
+subject_test.txt:	listing of test subject number
+y_test.txt:		listing of activity code
+
+path: /UCI HAR Dataset/train/
+X_train.txt:		train dataset
+subject_train.txt:	listing of test subject number
+y_train.txt:		listing of activity code
+
+NOTE: both test and train folders contain folders for Internal Signals which are not used
+for analysis since all required data is included in X_test.txt and X_train.txt files.
+
+============================================================
+Instructions:
+
+1)	Download UCI HAR Dataset archive (UCI HAR Dataset.zip) from following link:
+	https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+2)	Unzip archive and move the following files to your working directory:
+	features.txt
+	X_test.txt
+	subject_test.txt
+	y_test.txt
+	X_train.txt
+	subject_train.txt
+	y_train.txt
+
+3)	Source run_analysis.R 
