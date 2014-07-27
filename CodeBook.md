@@ -131,15 +131,10 @@ run_analysis.R  CODING / RATIONALE:
 VARIABLE DICTIONARY:
 ====================
 
-subjectnumber
-
-	subject ID number
-
-		range: 1 -30
-
-activity
- 
-	activity types:
+|Variable | Description|
+|---------|-------------|
+|subjectnumber | subject ID number (range: 1 -30)|
+|activity | activity types|
 
 		*Walking
 		*Walking Upstairs
@@ -150,13 +145,10 @@ activity
 
 **NOTE: All following reported values are the mean value of the listed variable.**
 
-TimeBodyAccelerometerMeanXaxis 
-
-	Time Domain: Body Accelerometer - Mean for X Axis 
-
-TimeBodyAccelerometerMeanYaxis 
-
-	Time Domain: Body Accelerometer - Mean for Y Axis 
+Variable | Description
+---------|-------------
+TimeBodyAccelerometerMeanXaxis | Time Domain: Body Accelerometer - Mean for X Axis
+TimeBodyAccelerometerMeanYaxis | Time Domain: Body Accelerometer - Mean for Y Axis 
 
 TimeBodyAccelerometerMeanZaxis 
 
