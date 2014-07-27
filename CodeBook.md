@@ -40,7 +40,16 @@ activityrecognition '@' smartlab.ws
 
 www.smartlab.ws
 
+DATA and PROJECT FILES:
+======================
 
+*HARmeantidy.txt* created by run_analysis.R script:
+
+https://github.com/patenak/GCD-Project1/blob/master/run_analysis.R
+
+See project for *CodeBook.md, README.md, run_analysis.R, HARtidymean.txt*:
+
+https://github.com/patenak/GCD-Project1
 
 
 VARIABLE DICTIONARY:

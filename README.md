@@ -107,6 +107,19 @@ These signals were used to estimate variables of the feature vector for each pat
 '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions."
 
 
+OTHER FILES:
+============
+
+https://github.com/patenak/GCD-Project1
+
+README.md:  this file
+
+run_analysis.R:  R script to produce tidy data set
+
+HARmeantidy.txt:  text file of tidy data set
+
+CodeBook.md:  codebook for tidy dataset
+
 
 Instructions:
 =============
@@ -178,4 +191,4 @@ run_analysis.R  CODING / RATIONALE:
 
 17) Write text file named *HARmeantidy.txt* from tidy data frame (tidymeandata).  
 
-**NOTE: data can be re-read into R using:** 'read.table("HARmeantidy.txt", header = TRUE)'
+**NOTE: data can be re-read into R using:** `read.table("HARmeantidy.txt", header = TRUE)`
