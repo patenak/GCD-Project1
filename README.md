@@ -47,43 +47,43 @@ The goal is to prepare tidy data that can be used for later analysis.
 
 Requirements for submission include:
  
-	*a tidy data set as described below
-
-	*a link to a Github repository with a developed script for performing the analysis
-
-	*a code book that describes the variables, the data, and any transformations or work that you performed to clean up 	the data called CodeBook.md. 
+1. a tidy data set
+2. a link to a Github repository with a developed script for performing the analysis
+3. a code book that describes the variables, the data, and any transformations or work that you performed to clean up the data called CodeBook.md. 
 
 Files Needed from UCI HAR Dataset archive (UCI HAR Dataset.zip) to perform analysis:
 ====================================================================================
 path: /UCI HAR Dataset/
 -----------------------
-README.txt:		readme file for original experiment
 
-activity_labels:	lisitng of numeric codes for each activity type
+*README.txt:*		readme file for original experiment
 
-features_info: 		Information on feature selection and variables of the feature vectors
+*activity_labels:*	lisitng of numeric codes for each activity type
 
-features.txt:		listing of variables for which data was collected
+*features_info:* 	Information on feature selection and variables of the feature vectors
+
+*features.txt:*		listing of variables for which data was collected
 
 path: /UCI HAR Dataset/test/
 ----------------------------
-X_test.txt:		test dataset
 
-subject_test.txt:	listing of test subject number
+*X_test.txt:*		test dataset
 
-y_test.txt:		listing of activity code
+*subject_test.txt:*	listing of test subject number
 
+*y_test.txt:*		listing of activity code
 
 path: /UCI HAR Dataset/train/
 -----------------------------
 
-X_train.txt:		train dataset
+*X_train.txt:*		train dataset
 
-subject_train.txt:	listing of test subject number
+*subject_train.txt:*	listing of test subject number
 
-y_train.txt:		listing of activity code
+*y_train.txt:*		listing of activity code
 
 **NOTE: both test and train folders contain folders for Internal Signals which are not used for analysis since all required data is included in X_test.txt and X_train.txt files.**
+
 
 Instructions:
 =============
@@ -94,22 +94,10 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 
 2) Unzip archive and move the following files to your working directory:
 
-	*features.txt
-
-	*X_test.txt
-
-	*subject_test.txt
-
-	*y_test.txt
-
-	*X_train.txt
-
-	*subject_train.txt
-
-	*y_train.txt
+features.txt, X_test.txt, subject_test.txt, y_test.txt, X_train.txt, subject_train.txt, y_train.txt
 
 3)Copy run_analysis.R to your working directory
 
-4)Source run_analysis.R
+4)Source run_analysis.R to create tidy data set
 
 **NOTE:  A text file named HARmeantidy.txt will be created. This file can be re-read into R using:** `read.table("HARmeantidy.txt", header = TRUE)`

@@ -49,82 +49,82 @@ path: /UCI HAR Dataset/
 
 *activity_labels:*	lisitng of numeric codes for each activity type
 
-*features_info:* 		Information on feature selection and variables of the feature vectors
+*features_info:* 	Information on feature selection and variables of the feature vectors
 
 *features.txt:*		listing of variables for which data was collected
 
 path: /UCI HAR Dataset/test/
 ----------------------------
 
-X_test.txt:		test dataset
+*X_test.txt:*		test dataset
 
-subject_test.txt:	listing of test subject number
+*subject_test.txt:*	listing of test subject number
 
-y_test.txt:		listing of activity code
+*y_test.txt:*		listing of activity code
 
 path: /UCI HAR Dataset/train/
 -----------------------------
 
-X_train.txt:		train dataset
+*X_train.txt:*		train dataset
 
-subject_train.txt:	listing of test subject number
+*subject_train.txt:*	listing of test subject number
 
-y_train.txt:		listing of activity code
+*y_train.txt:*		listing of activity code
 
 **NOTE: both test and train folders contain folders for Internal Signals which are not used for analysis since all required data is included in X_test.txt and X_train.txt files.**
 
 run_analysis.R  CODING / RATIONALE:
 ===================================
 
-1. The features.txt file is read into a table (featurestable) and the second column is extracted to build a vector (tableheader) containing the 561 variable names.  These variable names correspond with the values in the X_test.txt and X_train.txt and are used as the column headers.
+1) The features.txt file is read into a table (featurestable) and the second column is extracted to build a vector (tableheader) containing the 561 variable names.  These variable names correspond with the values in the X_test.txt and X_train.txt and are used as the column headers.
 
-2. The tableheader vector is scanned for any instance of mean() or std() variables. A vector of integers (meanstdcols) is constructed from this scan and will be used to select relevent columns from data.  
+2) The tableheader vector is scanned for any instance of mean() or std() variables. A vector of integers (meanstdcols) is constructed from this scan and will be used to select relevent columns from data.  
 
 **NOTE: Per features_info.txt, mean() and std() are designated as Mean value and Standard deviation variables.  meanFreq() and any angle() averages were omitted due to language.**
 
-3. Original test data is read into a data frame (Xtest) and column names are assigned by tableheader object. 
+3) Original test data is read into a data frame (Xtest) and column names are assigned by tableheader object. 
 
 **NOTE: test data contains 561 variables, which corresponds with 561 values in features.txt.  Test data also contains 2947 observations (rows).**
 
-4. Xtest data frame is trimmed to the 66 mean() or std() columns designated by meanstdcols object and all 2947 rows are retained.
+4) Xtest data frame is trimmed to the 66 mean() or std() columns designated by meanstdcols object and all 2947 rows are retained.
 
-5. One table is created for each file; subject_test.txt and y_test.txt (subjecttest and ytest, respectively). The column names as changed to subjectnumber and activity respectively.  
+5) One table is created for each file; subject_test.txt and y_test.txt (subjecttest and ytest, respectively). The column names as changed to subjectnumber and activity respectively.  
 
 **NOTE: both files contain 1 variable and 2947 observations, corresponding to a new column for the Xtest data frame.**
 
-6. subjecttest and ytest are column binded to the front of the Xtest data frame, to complete the data frame for the test data.  Resultant Xtest data frame with 2947 observations and 68 variables.
+6) subjecttest and ytest are column binded to the front of the Xtest data frame, to complete the data frame for the test data.  Resultant Xtest data frame with 2947 observations and 68 variables.
 
-7. Original train data is read into a data frame (Xtrain) and column names are assigned by tableheader object. 
+7) Original train data is read into a data frame (Xtrain) and column names are assigned by tableheader object. 
 
 **NOTE: train data contains 561 variables, which corresponds with 561 values in features.txt.  Test data also contains 7352 observations (rows).**
 
-8. Xtrain data frame is trimmed to the 66 mean() or std() columns designated by meanstdcols object and all 7352 rows are retained.
+8) Xtrain data frame is trimmed to the 66 mean() or std() columns designated by meanstdcols object and all 7352 rows are retained.
 
-9. One table is created for each file; subject_train.txt and y_train.txt (subjecttrain and ytrain, respectively). The column names as changed to subjectnumber and activity respectively.  
+9) One table is created for each file; subject_train.txt and y_train.txt (subjecttrain and ytrain, respectively). The column names as changed to subjectnumber and activity respectively.  
 
 **NOTE: both files contain 1 variable and 7352 observations, corresponding to a new column for the Xtrain data frame.**
 
-10. subjecttrain and ytrain are column binded to the front of the Xtrain data frame, to complete the data frame for the train data.  Resultant Xtrain data frame with 7352 observations and 68 variables.
+10) subjecttrain and ytrain are column binded to the front of the Xtrain data frame, to complete the data frame for the train data.  Resultant Xtrain data frame with 7352 observations and 68 variables.
 
-11. Both data frames, Xtest and Xtrain, are row binded into one master data frame (Xbound).  Resultant data frame contains 10299 observations and 68 variables, which corresponds to a proper row bind (2947 + 7352 = 10299 observations).
+11) Both data frames, Xtest and Xtrain, are row binded into one master data frame (Xbound).  Resultant data frame contains 10299 observations and 68 variables, which corresponds to a proper row bind (2947 + 7352 = 10299 observations).
 
-12. Clean up environment so only master data frame Xbound exists.  Create vector of non needed objects and remove via rm().  *Not absolutely needed but helps keep things clean.*
+12) Clean up environment so only master data frame Xbound exists.  Create vector of non needed objects and remove via rm().  *Not absolutely needed but helps keep things clean.*
 
-13. Use substitution to convert data in activity column from numeric code (1-6) to descriptive activity. Code for activites is detailed in activity_labels.txt
+13) Use substitution to convert data in activity column from numeric code (1-6) to descriptive activity. Code for activites is detailed in activity_labels.txt
 
-14. Re-order dataframe by subjectnumber and activity columns.
+14) Re-order dataframe by subjectnumber and activity columns.
 
-15. Build a vector (detailvars) from Xbound column names and use substitution to make detailvars more descriptive.  Reassgin Xbound column names with new descriptive vector detailvars. 
+15) Build a vector (detailvars) from Xbound column names and use substitution to make detailvars more descriptive.  Reassgin Xbound column names with new descriptive vector detailvars. 
 
 **NOTE: descriptors were derived from features_info.txt.**
 
-16. Build a tidy data frame (tidymeandata) that calculates mean for each variable by subject and by activity from Xbound data frame using ddply from plyr package.  
+16) Build a tidy data frame (tidymeandata) that calculates mean for each variable by subject and by activity from Xbound data frame using ddply from plyr package.  
 
 **NOTE: Plyr package can be found at:** http://cran.r-project.org/web/packages/plyr/index.html)
 
 **or installed within R:**  `install.packages("plyr")`
 
-17. Write text file named HARmeantidy from tidy data frame (tidymeandata).  
+17) Write text file named HARmeantidy from tidy data frame (tidymeandata).  
 
 **NOTE: data can be re-read into R using:** read.table("HARmeantidy.txt", header = TRUE)
 
@@ -134,7 +134,7 @@ VARIABLE DICTIONARY:
 |Variable | Description|
 |---------|-------------|
 |subjectnumber | subject ID number (range: 1 -30)|
-|activity | activity types(Walking, Walking Upstairs, Walking Downstairs, Sitting, Standing, Laying) |
+|activity | activity types (Walking, Walking Upstairs, Walking Downstairs, Sitting, Standing, Laying) |
 
 **NOTE: All following reported values are the mean value of the listed variable.**
 ----------------------------------------------------------------------------------
